@@ -5,16 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoViewComponent } from './todoPages/todo-view/todo-view.component';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ListViewComponent } from './todoPages/list-view/list-view.component';
+import { NewTaskComponent } from './todoPages/new-task/new-task.component';
+import { LoginPageComponent } from './todoPages/login-page/login-page.component';
+import { WebRequestInterceptorService } from './web-request-interceptor.service';
+import { SignUpPageComponent } from './todoPages/sign-up-page/sign-up-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    TodoViewComponent
+    TodoViewComponent,
+    ListViewComponent,
+    NewTaskComponent,
+    LoginPageComponent,
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS , useClass : WebRequestInterceptorService , multi: true  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
