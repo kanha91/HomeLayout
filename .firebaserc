@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "todo-list-kanha": {
+      "hosting": {
+        "HomeLayout": [
+          "todo-list-kanha"
+        ]
+      }
+    }
+  }
+}
