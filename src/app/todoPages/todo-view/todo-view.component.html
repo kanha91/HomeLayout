@@ -36,7 +36,7 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu4" role="menu">
               <div class="dropdown-content">
-                <a [routerLink] ="['/edit-list' ,seleclectedListId]" class="dropdown-item">
+                <a [routerLink] ="['/edit-list' ,selectedListId]" class="dropdown-item">
                   Edit
                 </a>
                 <a (click) ="onDeleteListClick()" class="dropdown-item has-text-danger">
@@ -54,7 +54,7 @@
           <p>{{ task.title }}</p>
          </div>
          <div class="task-buttons">
-            <button class="button"style="margin-right: 10px;" [routerLink] = "['/lists', seleclectedListId, 'edit-task',task._id]" >
+            <button class="button"style="margin-right: 10px;" [routerLink] = "['/lists', selectedListId, 'edit-task',task._id]" >
               <div class="icon">
                 <i class="fas fa-edit"></i>
               </div>

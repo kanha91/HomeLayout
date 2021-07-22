@@ -9,7 +9,7 @@ import { SignUpPageComponent } from './todoPages/sign-up-page/sign-up-page.compo
 import { TodoViewComponent } from './todoPages/todo-view/todo-view.component';
 
 const routes: Routes = [
-  { path: '', redirectTo:'login', pathMatch:'full'},
+  { path: '', redirectTo:'lists', pathMatch:'full'},
   { path: 'list-view', component:ListViewComponent},
   { path: 'new-task', component:NewTaskComponent},
   { path: 'edit-list/:listId', component:EditListComponent},

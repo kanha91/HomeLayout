@@ -21,6 +21,11 @@ export class LoginPageComponent implements OnInit {
         // loged in succefully
         this.router.navigate(['/lists']);
       }
+      else{
+        
+        this.router.navigate(['/login']);
+
+      }
 
       console.log(res);
 

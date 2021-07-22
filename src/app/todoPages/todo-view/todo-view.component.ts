@@ -15,7 +15,7 @@ export class TodoViewComponent implements OnInit {
   lists!:List[];
   tasks!:Task[];
 
-  seleclectedListId : string | any
+  selectedListId : string | any
 
   constructor(private taskService: TaskService , private route: ActivatedRoute, private router: Router) { }
 
@@ -23,7 +23,7 @@ export class TodoViewComponent implements OnInit {
     this.route.params.subscribe( (params: Params) => {
      if(params.listId){
         // console.log(params);
-        this.seleclectedListId = params.listId;
+        this.selectedListId = params.listId;
         this.taskService.getTasks(params.listId).subscribe((tasks:any) => {
         this.tasks = tasks;
       })
@@ -55,7 +55,7 @@ export class TodoViewComponent implements OnInit {
   }
 
   onDeleteListClick() {
-    this.taskService.deleteList(this.seleclectedListId).subscribe((res : any) => {
+    this.taskService.deleteList(this.selectedListId).subscribe((res : any) => {
       this.router.navigate(['/lists']);
       console.log(res);
 
@@ -64,7 +64,7 @@ export class TodoViewComponent implements OnInit {
 
   onDeleteTaskClick(id:string){
 
-    this.taskService.deleteTask(this.seleclectedListId, id).subscribe((res : any) => {
+    this.taskService.deleteTask(this.selectedListId, id).subscribe((res : any) => {
       // this.router.navigate(['/lists']);
       this.tasks =  this.tasks.filter(val => val._id !== id);
       console.log(res);
