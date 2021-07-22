@@ -11,8 +11,6 @@ import { NewTaskComponent } from './todoPages/new-task/new-task.component';
 import { LoginPageComponent } from './todoPages/login-page/login-page.component';
 import { WebRequestInterceptorService } from './web-request-interceptor.service';
 import { SignUpPageComponent } from './todoPages/sign-up-page/sign-up-page.component';
-import { EditListComponent } from './todoPages/edit-list/edit-list.component';
-import { EditTaskComponent } from './todoPages/edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +19,7 @@ import { EditTaskComponent } from './todoPages/edit-task/edit-task.component';
     ListViewComponent,
     NewTaskComponent,
     LoginPageComponent,
-    SignUpPageComponent,
-    EditListComponent,
-    EditTaskComponent
+    SignUpPageComponent
   ],
   imports: [
     BrowserModule,

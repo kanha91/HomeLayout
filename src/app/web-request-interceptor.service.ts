@@ -1,8 +1,11 @@
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
+// import { error } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, empty, Subject } from 'rxjs';
+// import { error } from 'console';
+import { empty, Observable, Subject, throwError } from 'rxjs';
+import { catchError, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
-import { catchError, tap, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +14,7 @@ export class WebRequestInterceptorService implements HttpInterceptor {
 
   constructor(private authService: AuthService) { }
 
-  refreshingAccessToken!: boolean;
+  refreshingAccessToken: boolean | undefined;
 
   accessTokenRefreshed: Subject<any> = new Subject();
 
@@ -27,7 +30,7 @@ export class WebRequestInterceptorService implements HttpInterceptor {
 
         if (error.status === 401) {
           // 401 error so we are unauthorized
-          this.authService.logout();
+
           // refresh the access token
           return this.refreshAccessToken()
             .pipe(
