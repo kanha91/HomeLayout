@@ -23,7 +23,7 @@ export class EditTaskComponent implements OnInit {
 
   updateTask(title: string){
     this.taskService.updateTask(this.listId, this.taskId,title).subscribe(() => {
-      this.router.navigate(['/lists',this.listId])
+      this.router.navigate(['/lists',this.listId]);
 
     });
   }

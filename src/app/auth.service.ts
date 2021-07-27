@@ -8,7 +8,7 @@ import{ shareReplay, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  [x: string]: any;
+  // [x: string]: any;
 
   constructor(private webService: WebRequestService, private router: Router, private http: HttpClient) { }
 
@@ -48,19 +48,18 @@ export class AuthService {
   }
 
   getRefreshToken() {
-    return localStorage.getItem('x-refresh-token');
+    return localStorage.getItem('x-refresh-token') || '';
   }
 
   getUserId() {
-    return localStorage.getItem('user-id');
+    return localStorage.getItem('user-id') || '';
   }
 
-  setAccessToken(accessToken: string) {
+  setAccessToken(accessToken: string | any) {
     localStorage.setItem('x-access-token', accessToken)
   }
 
-  private setSession(userId?: string | any
-    , accessToken?: string | any, refreshToken?: string | any) {
+  private setSession(userId : any, accessToken : any, refreshToken: any) {
     localStorage.setItem('user-id', userId);
     localStorage.setItem('x-access-token', accessToken);
     localStorage.setItem('x-refresh-token', refreshToken);
@@ -72,17 +71,17 @@ export class AuthService {
     localStorage.removeItem('x-refresh-token');
   }
 
-  // getNewAccessToken() {
-  //   return this.http.get(`${this.webService.ROOT_URL}/users/me/access-token`, {
-  //     headers: {
-  //       'x-refresh-token': this.getRefreshToken(),
-  //       '_id': this.getUserId()
-  //     },
-  //     observe : 'response'
-  //   }).pipe(
-  //     tap((res: HttpResponse<any>) => {
-  //       this.setAccessToken(res.headers.get('x-access-token'));
-  //     })
-  //   )
-  // }
+  getNewAccessToken() {
+    return this.http.get(`${this.webService.ROOT_URL}/users/me/access-token`, {
+      headers: {
+        'x-refresh-token': this.getRefreshToken(),
+        '_id': this.getUserId()
+      },
+      observe: 'response'
+    }).pipe(
+      tap((res: HttpResponse<any>) => {
+        this.setAccessToken(res.headers.get('x-access-token'));
+      })
+    )
+  }
 }
