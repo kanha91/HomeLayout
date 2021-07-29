@@ -8,7 +8,7 @@
     <input #taskTitleInput class="input has-background-light is-medium" type="text" placeholder="Enter a task name ...">
     <br><br>
     <div class="buttons is-right">
-        <button class="button is-medium" [routerLink] ="['/lists', selectedListId]">Cancle</button>
+        <button class="button is-medium"  [routerLink] ="['../']">Cancle</button>
         <button class="button is-primary is-medium"(click) ="createTask(taskTitleInput.value)">Create</button>
 
     </div>

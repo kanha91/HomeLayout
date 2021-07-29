@@ -8,7 +8,7 @@
     <input #listTitleInput class="input has-background-light is-medium" type="text" placeholder="Enter a list name">
     <br><br>
     <div class="buttons is-right">
-        <button class="button is-medium" routerLink="/lists" >Cancle</button>
+        <button class="button is-medium" [routerLink]="['/lists',this.listId]" >Cancle</button>
         <button class="button is-primary is-medium"(click) ="updateList(listTitleInput.value)">Save</button>
 
     </div>

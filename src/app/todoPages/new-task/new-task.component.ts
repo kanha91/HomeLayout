@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { List } from 'src/app/models/list.model';
 import { Task } from 'src/app/models/task.model';
 import { TaskService } from 'src/app/task.service';
 
@@ -15,6 +16,10 @@ export class NewTaskComponent implements OnInit {
   listId!:string;
   newTask!:Task[];
   selectedListId!:string
+
+  // lists!:List[];
+  // tasks!:Task[];
+
 
   ngOnInit(): void {
     this.route.params.subscribe( (params: Params) => {
