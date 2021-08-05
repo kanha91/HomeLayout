@@ -16,6 +16,10 @@ export class TaskService {
     return this.webReqService.get('lists');
   }
 
+  getUsers(){
+    return this.webReqService.get('users');
+  }
+
   createList(title:string) {
     // send a web req to create a list
     return this.webReqService.post('lists', { title });

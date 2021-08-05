@@ -13,6 +13,7 @@ import { WebRequestInterceptorService } from './web-request-interceptor.service'
 import { SignUpPageComponent } from './todoPages/sign-up-page/sign-up-page.component';
 import { EditListComponent } from './todoPages/edit-list/edit-list.component';
 import { EditTaskComponent } from './todoPages/edit-task/edit-task.component';
+import { TaskAssignedComponent } from './todoPages/task-assigned/task-assigned.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EditTaskComponent } from './todoPages/edit-task/edit-task.component';
     LoginPageComponent,
     SignUpPageComponent,
     EditListComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    TaskAssignedComponent
   ],
   imports: [
     BrowserModule,

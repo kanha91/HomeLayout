@@ -6,6 +6,7 @@ import { ListViewComponent } from './todoPages/list-view/list-view.component';
 import { LoginPageComponent } from './todoPages/login-page/login-page.component';
 import { NewTaskComponent } from './todoPages/new-task/new-task.component';
 import { SignUpPageComponent } from './todoPages/sign-up-page/sign-up-page.component';
+import { TaskAssignedComponent } from './todoPages/task-assigned/task-assigned.component';
 import { TodoViewComponent } from './todoPages/todo-view/todo-view.component';
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'signup', component:SignUpPageComponent},
   { path: 'lists',component: TodoViewComponent },
   { path: 'lists/:listId',component: TodoViewComponent },
-  { path: 'lists/:listId/new-task', component:NewTaskComponent}
+  { path: 'lists/:listId/new-task', component:NewTaskComponent},
+  { path: 'taskassigned', component:TaskAssignedComponent }
 ];
 
 @NgModule({
